@@ -1,0 +1,268 @@
+import type { Activity } from '../types/multiday';
+
+// Tipo para atividades no banco (sem horários que serão adicionados dinamicamente)
+type ActivityTemplate = Omit<Activity, 'startTime' | 'endTime'>;
+
+// Banco de dados completo de atividades por região
+
+export const activityDatabase: Record<string, ActivityTemplate[]> = {
+  Pelourinho: [
+    {
+      id: 'pel-001',
+      name: 'Largo do Pelourinho',
+      duration: '30min',
+      description: 'Centro histórico com casarões coloridos tombados pela UNESCO',
+      category: 'photo' as const,
+      mapsLink: 'https://maps.app.goo.gl/pelourinho-largo',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Melhor luz para fotos: 8h-10h', 'Evite horários muito quentes'],
+    },
+    {
+      id: 'pel-002',
+      name: 'Fundação Jorge Amado',
+      duration: '45min',
+      description: 'Museu dedicado ao escritor baiano mais famoso',
+      category: 'cultural' as const,
+      mapsLink: 'https://maps.app.goo.gl/fundacao-jorge-amado',
+      entryFee: 15,
+      accessibility: false,
+      tips: ['Fecha às segundas-feiras', 'Tem lojinha com livros autografados'],
+    },
+    {
+      id: 'pel-003',
+      name: 'Igreja do Rosário dos Pretos',
+      duration: '30min',
+      description: 'História afro-brasileira e tradição espiritual',
+      category: 'religious' as const,
+      mapsLink: 'https://maps.app.goo.gl/rosario-pretos',
+      entryFee: 0,
+      accessibility: false,
+      tips: ['Respeite o silêncio durante visita', 'Construída por escravizados'],
+    },
+    {
+      id: 'pel-004',
+      name: 'Museu Afro-Brasileiro',
+      duration: '1h',
+      description: 'Arte e cultura africana no Brasil',
+      category: 'museum' as const,
+      mapsLink: 'https://maps.app.goo.gl/museu-afro',
+      entryFee: 10,
+      accessibility: true,
+      tips: ['Acervo incrível de máscaras africanas', 'Guia gratuito disponível'],
+    },
+    {
+      id: 'pel-005',
+      name: 'Igreja de São Francisco',
+      duration: '45min',
+      description: 'Interior barroco coberto de ouro, uma das mais belas do Brasil',
+      category: 'religious' as const,
+      mapsLink: 'https://maps.app.goo.gl/sao-francisco',
+      entryFee: 10,
+      accessibility: false,
+      tips: ['Proibido fotografar o interior', 'Imperdível!'],
+    },
+    {
+      id: 'pel-006',
+      name: 'Catedral Basílica',
+      duration: '30min',
+      description: 'Imponente catedral jesuíta do século XVII',
+      category: 'religious' as const,
+      mapsLink: 'https://maps.app.goo.gl/catedral',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Linda arquitetura externa', 'Missas aos domingos'],
+    },
+    {
+      id: 'pel-007',
+      name: 'Elevador Lacerda',
+      duration: '20min',
+      description: 'Vista panorâmica e acesso rápido à Cidade Baixa',
+      category: 'photo' as const,
+      mapsLink: 'https://maps.app.goo.gl/elevador-lacerda',
+      entryFee: 0.15,
+      accessibility: true,
+      tips: ['Vista incrível da Baía', 'Funciona das 6h às 23h'],
+    },
+  ],
+
+  'Rio Vermelho': [
+    {
+      id: 'rv-001',
+      name: 'Casa de Yemanjá',
+      duration: '20min',
+      description: 'Santuário à beira-mar dedicado à rainha do mar',
+      category: 'religious' as const,
+      mapsLink: 'https://maps.app.goo.gl/casa-yemanja',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Local sagrado, respeite as oferendas', '2 de fevereiro: Festa de Yemanjá'],
+    },
+    {
+      id: 'rv-002',
+      name: 'Mercado do Peixe',
+      duration: '1h30min',
+      description: 'Frutos do mar fresquíssimos preparados na hora',
+      category: 'food' as const,
+      mapsLink: 'https://maps.app.goo.gl/mercado-peixe',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Chegue cedo para melhor seleção', 'Peça a moqueca'],
+    },
+    {
+      id: 'rv-003',
+      name: 'Largo de Santana',
+      duration: '1h',
+      description: 'Boemia, bares e música ao vivo',
+      category: 'food' as const,
+      mapsLink: 'https://maps.app.goo.gl/largo-santana',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Melhor à noite', 'Vários bares ao redor'],
+    },
+    {
+      id: 'rv-004',
+      name: 'Praia do Rio Vermelho',
+      duration: '1h',
+      description: 'Praia urbana com boa infraestrutura',
+      category: 'beach' as const,
+      mapsLink: 'https://maps.app.goo.gl/praia-rv',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Mar agitado, cuidado ao nadar', 'Quiosques na orla'],
+    },
+  ],
+
+  'Farol da Barra': [
+    {
+      id: 'bar-001',
+      name: 'Farol da Barra',
+      duration: '40min',
+      description: 'Cartão-postal de Salvador com vista espetacular',
+      category: 'photo' as const,
+      mapsLink: 'https://maps.app.goo.gl/farol-barra',
+      entryFee: 15,
+      accessibility: false,
+      tips: ['Melhor pôr do sol de Salvador', 'Museu náutico no interior'],
+    },
+    {
+      id: 'bar-002',
+      name: 'Forte de Santo Antônio',
+      duration: '30min',
+      description: 'Fortaleza histórica com museu náutico',
+      category: 'cultural' as const,
+      mapsLink: 'https://maps.app.goo.gl/forte-santo-antonio',
+      entryFee: 15,
+      accessibility: false,
+      tips: ['Mesmo local do Farol', 'Vista de 360° da cidade'],
+    },
+    {
+      id: 'bar-003',
+      name: 'Porto da Barra',
+      duration: '1h30min',
+      description: 'Praia urbana perfeita para banho, eleita uma das mais belas do mundo',
+      category: 'beach' as const,
+      mapsLink: 'https://maps.app.goo.gl/porto-barra',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Águas calmas', 'Chuveiros e estrutura boa'],
+    },
+    {
+      id: 'bar-004',
+      name: 'Morro do Cristo',
+      duration: '30min',
+      description: 'Vista panorâmica de 360° da cidade',
+      category: 'photo' as const,
+      mapsLink: 'https://maps.app.goo.gl/morro-cristo',
+      entryFee: 0,
+      accessibility: false,
+      tips: ['Subida íngreme', 'Melhor no fim da tarde'],
+    },
+  ],
+
+  'Cidade Baixa': [
+    {
+      id: 'cb-001',
+      name: 'Mercado Modelo',
+      duration: '1h',
+      description: 'Artesanato e souvenirs baianos autênticos',
+      category: 'shopping' as const,
+      mapsLink: 'https://maps.app.goo.gl/mercado-modelo',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Pechinche!', 'Cuidado com pertences'],
+    },
+    {
+      id: 'cb-002',
+      name: 'Igreja de Nossa Senhora da Conceição da Praia',
+      duration: '25min',
+      description: 'Bela igreja colonial portuguesa',
+      category: 'religious' as const,
+      mapsLink: 'https://maps.app.goo.gl/conceicao-praia',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Azulejos portugueses originais', 'Festa da Conceição em dezembro'],
+    },
+    {
+      id: 'cb-003',
+      name: 'Forte São Marcelo',
+      duration: '20min',
+      description: 'Forte circular no meio da Baía (vista externa)',
+      category: 'photo' as const,
+      mapsLink: 'https://maps.app.goo.gl/forte-sao-marcelo',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Apenas vista externa da orla', 'Visitas internas via escuna'],
+    },
+  ],
+
+  Carmo: [
+    {
+      id: 'car-001',
+      name: 'Igreja e Convento do Carmo',
+      duration: '40min',
+      description: 'Uma das igrejas mais bonitas de Salvador',
+      category: 'religious' as const,
+      mapsLink: 'https://maps.app.goo.gl/carmo-igreja',
+      entryFee: 5,
+      accessibility: false,
+      tips: ['Claustro belíssimo', 'Museu de arte sacra'],
+    },
+    {
+      id: 'car-002',
+      name: 'Largo do Carmo',
+      duration: '20min',
+      description: 'Praça charmosa com casarões históricos',
+      category: 'photo' as const,
+      mapsLink: 'https://maps.app.goo.gl/largo-carmo',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Ótimo para fotos', 'Cafés ao redor'],
+    },
+    {
+      id: 'car-003',
+      name: 'Rua do Passo e arredores',
+      duration: '40min',
+      description: 'Caminhada tranquila pelo bairro histórico',
+      category: 'photo' as const,
+      mapsLink: 'https://maps.app.goo.gl/rua-passo',
+      entryFee: 0,
+      accessibility: true,
+      tips: ['Bairro residencial tranquilo', 'Arquitetura preservada'],
+    },
+  ],
+};
+
+// Função helper para buscar atividades por região
+export function getActivitiesByRegion(region: string): ActivityTemplate[] {
+  return activityDatabase[region] || [];
+}
+
+// Função para buscar atividade por categoria
+export function getActivitiesByCategory(
+  region: string,
+  category: Activity['category']
+): ActivityTemplate[] {
+  const activities = getActivitiesByRegion(region);
+  return activities.filter((a) => a.category === category);
+}

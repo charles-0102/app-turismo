@@ -1,0 +1,335 @@
+.trip-planner {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bahia-bg-white) 0%, var(--bahia-gradient-start) 100%);
+}
+
+.planner-hero {
+  background: linear-gradient(135deg, var(--bahia-blue) 0%, var(--bahia-green) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.planner-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.planner-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+
+.planner-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.planner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.form-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--bahia-card-shadow);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--bahia-text-dark);
+  margin-bottom: 1rem;
+}
+
+.section-hint {
+  color: var(--bahia-text-medium);
+  margin-bottom: 1.5rem;
+}
+
+/* Seletor de dias */
+.days-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.day-option {
+  background: var(--bahia-bg-light);
+  border: 3px solid transparent;
+  padding: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day-option:hover {
+  border-color: var(--bahia-blue);
+  transform: translateY(-2px);
+}
+
+.day-option.selected {
+  background: var(--bahia-blue);
+  color: white;
+  border-color: var(--bahia-blue);
+}
+
+.day-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.day-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Grid de regiões */
+.regions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.region-card {
+  border: 2px solid var(--bahia-bg-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.region-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.region-header:hover {
+  background: var(--bahia-bg-light);
+}
+
+.region-header.selected {
+  background: linear-gradient(135deg, rgba(0, 168, 232, 0.1) 0%, rgba(0, 217, 163, 0.1) 100%);
+  border-bottom: 1px solid var(--bahia-bg-light);
+}
+
+.region-checkbox {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.region-info {
+  flex: 1;
+}
+
+.region-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--bahia-text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.region-description {
+  font-size: 0.95rem;
+  color: var(--bahia-text-medium);
+}
+
+.region-hours {
+  padding: 1.25rem;
+  background: var(--bahia-bg-light);
+}
+
+.region-hours label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--bahia-text-dark);
+  font-size: 0.95rem;
+}
+
+.hours-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.hours-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bahia-blue);
+  cursor: pointer;
+}
+
+.hours-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bahia-blue);
+  cursor: pointer;
+  border: none;
+}
+
+.hours-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--bahia-text-medium);
+}
+
+/* Grid de estilos */
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.style-card {
+  background: var(--bahia-bg-light);
+  border: 3px solid transparent;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.style-card:hover {
+  border-color: var(--bahia-yellow);
+  transform: translateY(-2px);
+}
+
+.style-card.selected {
+  background: var(--bahia-yellow);
+  border-color: var(--bahia-yellow);
+  color: var(--bahia-text-dark);
+}
+
+.style-icon {
+  font-size: 2.5rem;
+}
+
+.style-name {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Opções de ritmo */
+.pace-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pace-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--bahia-bg-light);
+  border: 3px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pace-option:hover {
+  border-color: var(--bahia-green);
+}
+
+.pace-option.selected {
+  background: white;
+  border-color: var(--bahia-green);
+  box-shadow: 0 4px 12px rgba(0, 217, 163, 0.2);
+}
+
+.pace-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+.pace-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.pace-icon {
+  font-size: 2rem;
+}
+
+.pace-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 100px;
+}
+
+.pace-description {
+  color: var(--bahia-text-medium);
+  font-size: 0.95rem;
+}
+
+/* Botão de submit */
+.submit-btn {
+  width: 100%;
+  padding: 1.25rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-error {
+  text-align: center;
+  color: #e74c3c;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .planner-title {
+    font-size: 2rem;
+  }
+
+  .planner-subtitle {
+    font-size: 1rem;
+  }
+
+  .days-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .style-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pace-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

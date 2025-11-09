@@ -7,10 +7,31 @@
 }
 
 :root {
+  /* Cores originais (mantidas para compatibilidade) */
   --primary-color: #1a1a1a;
   --secondary-color: #f2b705;
   --background-color: #ffffff;
   --text-color: #1a1a1a;
+
+  /* Novas cores - Tema Bahia (claro e vibrante) */
+  --bahia-blue: #00A8E8;        /* Azul Baía de Todos os Santos */
+  --bahia-yellow: #FFB800;      /* Amarelo Bahia / Sol */
+  --bahia-orange: #FF6B35;      /* Laranja Acarajé */
+  --bahia-green: #00D9A3;       /* Verde-água Praias */
+  --bahia-bg-light: #F8F9FA;    /* Cinza muito claro */
+  --bahia-bg-white: #FFFFFF;    /* Branco */
+  --bahia-text-dark: #2D3436;   /* Texto principal */
+  --bahia-text-medium: #636E72; /* Texto secundário */
+  --bahia-text-light: #95A5A6;  /* Texto claro */
+  --bahia-success: #00B894;     /* Verde confirmação */
+  --bahia-gradient-start: #F0F8FF; /* Azul claro para gradientes */
+  --bahia-card-shadow: rgba(0, 168, 232, 0.1);
+
+  /* Cores por período do dia */
+  --period-morning: linear-gradient(135deg, #FFE57F 0%, #FFB800 100%);
+  --period-afternoon: linear-gradient(135deg, #FFB800 0%, #FF6B35 100%);
+  --period-evening: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -87,3 +108,66 @@ body {
     font-size: 14px;
   }
 }
+
+/* Utility classes para tema Bahia */
+.theme-light {
+  background: linear-gradient(135deg, var(--bahia-bg-white) 0%, var(--bahia-gradient-start) 100%);
+  color: var(--bahia-text-dark);
+}
+
+.card-bahia {
+  background: var(--bahia-bg-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--bahia-card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-bahia:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 168, 232, 0.2);
+}
+
+.btn-bahia-primary {
+  background: var(--bahia-blue);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-bahia-primary:hover {
+  background: #0096D1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.4);
+}
+
+.btn-bahia-secondary {
+  background: transparent;
+  color: var(--bahia-blue);
+  border: 2px solid var(--bahia-blue);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-bahia-secondary:hover {
+  background: var(--bahia-blue);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.text-bahia-blue { color: var(--bahia-blue); }
+.text-bahia-yellow { color: var(--bahia-yellow); }
+.text-bahia-orange { color: var(--bahia-orange); }
+.text-bahia-green { color: var(--bahia-green); }
+
+.bg-bahia-blue { background-color: var(--bahia-blue); }
+.bg-bahia-yellow { background-color: var(--bahia-yellow); }
+.bg-bahia-light { background-color: var(--bahia-bg-light); }
