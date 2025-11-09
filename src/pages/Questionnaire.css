@@ -1,0 +1,89 @@
+.questionnaire {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+}
+
+.questionnaire-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #f2b705;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+  transition: opacity 0.3s ease;
+}
+
+.back-btn:hover {
+  opacity: 0.8;
+}
+
+.questionnaire-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #f2b705;
+}
+
+.questionnaire-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #c0c0c0;
+}
+
+.questionnaire-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.form-select {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #2d2d2d;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #f2b705;
+}
+
+.form-select option {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.questionnaire-form .btn-primary {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .questionnaire-title {
+    font-size: 2rem;
+  }
+}

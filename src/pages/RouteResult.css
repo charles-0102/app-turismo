@@ -1,0 +1,196 @@
+.route-result {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+}
+
+.route-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.route-header {
+  margin-bottom: 3rem;
+}
+
+.route-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #f2b705;
+  line-height: 1.2;
+}
+
+.route-meta {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+.route-duration,
+.route-region {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #f2b705;
+}
+
+.route-steps {
+  margin-bottom: 3rem;
+}
+
+.step-card {
+  display: flex;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(242, 183, 5, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(242, 183, 5, 0.4);
+  transform: translateX(5px);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: #f2b705;
+  color: #1a1a1a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: #c0c0c0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.step-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.step-time {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.step-maps-link {
+  color: #f2b705;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.step-maps-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.map-section {
+  margin-bottom: 3rem;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(242, 183, 5, 0.3);
+}
+
+.map-iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+.food-section {
+  margin-bottom: 3rem;
+}
+
+.food-card {
+  background: rgba(242, 183, 5, 0.1);
+  border: 2px solid rgba(242, 183, 5, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.food-time {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f2b705;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.food-suggestion {
+  font-size: 1.2rem;
+  color: white;
+  line-height: 1.6;
+}
+
+.back-btn-bottom {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .route-title {
+    font-size: 1.8rem;
+  }
+
+  .route-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .step-card {
+    flex-direction: column;
+  }
+
+  .step-number {
+    align-self: flex-start;
+  }
+
+  .map-iframe {
+    height: 300px;
+  }
+}

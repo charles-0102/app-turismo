@@ -1,0 +1,390 @@
+import type { Route } from '../types';
+
+export const routes: Route[] = [
+  {
+    id: 'pelourinho-2h-cultural',
+    region: 'Pelourinho',
+    duration: '2h',
+    vibe: 'Cultural',
+    steps: [
+      {
+        name: 'Largo do Pelourinho',
+        time: '10 min',
+        description: 'Centro histórico e fotos dos casarões coloridos',
+        maps: 'https://maps.app.goo.gl/pelourinho',
+      },
+      {
+        name: 'Fundação Jorge Amado',
+        time: '25 min',
+        description: 'Museu dedicado ao escritor baiano',
+        maps: 'https://maps.app.goo.gl/fundacao-jorge-amado',
+      },
+      {
+        name: 'Igreja do Rosário dos Pretos',
+        time: '20 min',
+        description: 'História afro-brasileira e tradição espiritual',
+        maps: 'https://maps.app.goo.gl/rosario-pretos',
+      },
+    ],
+    food_suggestions: {
+      almoco: 'Restaurante do SENAC (comida baiana tradicional)',
+      noite: 'Bar do Carmo (vista + calma)',
+    },
+  },
+  {
+    id: 'pelourinho-4h-cultural',
+    region: 'Pelourinho',
+    duration: '4h',
+    vibe: 'Cultural',
+    steps: [
+      {
+        name: 'Largo do Pelourinho',
+        time: '15 min',
+        description: 'Centro histórico e fotos dos casarões coloridos',
+        maps: 'https://maps.app.goo.gl/pelourinho',
+      },
+      {
+        name: 'Fundação Jorge Amado',
+        time: '30 min',
+        description: 'Museu dedicado ao escritor baiano',
+        maps: 'https://maps.app.goo.gl/fundacao-jorge-amado',
+      },
+      {
+        name: 'Igreja do Rosário dos Pretos',
+        time: '30 min',
+        description: 'História afro-brasileira e tradição espiritual',
+        maps: 'https://maps.app.goo.gl/rosario-pretos',
+      },
+      {
+        name: 'Museu Afro-Brasileiro',
+        time: '45 min',
+        description: 'Arte e cultura africana no Brasil',
+        maps: 'https://maps.app.goo.gl/museu-afro',
+      },
+      {
+        name: 'Elevador Lacerda',
+        time: '20 min',
+        description: 'Vista panorâmica e acesso à Cidade Baixa',
+        maps: 'https://maps.app.goo.gl/elevador-lacerda',
+      },
+    ],
+    food_suggestions: {
+      almoco: 'Restaurante do SENAC (comida baiana tradicional)',
+      tarde: 'Cafelia (café e tapioca)',
+      noite: 'Bar do Carmo (vista + calma)',
+    },
+  },
+  {
+    id: 'rio-vermelho-2h-gastro',
+    region: 'Rio Vermelho',
+    duration: '2h',
+    vibe: 'Gastronomia',
+    steps: [
+      {
+        name: 'Casa de Yemanjá',
+        time: '15 min',
+        description: 'Santuário à beira-mar dedicado à rainha do mar',
+        maps: 'https://maps.app.goo.gl/casa-yemanja',
+      },
+      {
+        name: 'Acarajé da Dinha',
+        time: '30 min',
+        description: 'O acarajé mais famoso de Salvador',
+        maps: 'https://maps.app.goo.gl/acaraje-dinha',
+      },
+      {
+        name: 'Orla até o Largo de Santana',
+        time: '30 min',
+        description: 'Caminhada pela orla apreciando a vista do mar',
+        maps: 'https://maps.app.goo.gl/largo-santana',
+      },
+    ],
+    food_suggestions: {
+      tarde: 'Sorbeteria da Ribeira (sorvetes artesanais)',
+      noite: 'Boteco do França (petiscos e cerveja gelada)',
+    },
+  },
+  {
+    id: 'rio-vermelho-4h-gastro',
+    region: 'Rio Vermelho',
+    duration: '4h',
+    vibe: 'Gastronomia',
+    steps: [
+      {
+        name: 'Casa de Yemanjá',
+        time: '20 min',
+        description: 'Santuário à beira-mar dedicado à rainha do mar',
+        maps: 'https://maps.app.goo.gl/casa-yemanja',
+      },
+      {
+        name: 'Mercado do Peixe',
+        time: '45 min',
+        description: 'Frutos do mar fresquíssimos preparados na hora',
+        maps: 'https://maps.app.goo.gl/mercado-peixe',
+      },
+      {
+        name: 'Acarajé da Dinha',
+        time: '30 min',
+        description: 'O acarajé mais famoso de Salvador',
+        maps: 'https://maps.app.goo.gl/acaraje-dinha',
+      },
+      {
+        name: 'Largo de Santana',
+        time: '40 min',
+        description: 'Boemia, bares e música ao vivo',
+        maps: 'https://maps.app.goo.gl/largo-santana',
+      },
+    ],
+    food_suggestions: {
+      almoco: 'Mercado do Peixe (frutos do mar)',
+      tarde: 'Sorbeteria da Ribeira (sorvetes artesanais)',
+      noite: 'Boteco do França (petiscos e cerveja gelada)',
+    },
+  },
+  {
+    id: 'barra-2h-fotos',
+    region: 'Farol da Barra',
+    duration: '2h',
+    vibe: 'Fotos / Instagram',
+    steps: [
+      {
+        name: 'Farol da Barra',
+        time: '30 min',
+        description: 'Cartão-postal de Salvador com vista espetacular',
+        maps: 'https://maps.app.goo.gl/farol-barra',
+      },
+      {
+        name: 'Forte de Santo Antônio',
+        time: '20 min',
+        description: 'Museu náutico e mirante para o pôr do sol',
+        maps: 'https://maps.app.goo.gl/forte-santo-antonio',
+      },
+      {
+        name: 'Orla da Barra',
+        time: '30 min',
+        description: 'Caminhada pela praia com fotos do mar',
+        maps: 'https://maps.app.goo.gl/orla-barra',
+      },
+    ],
+    food_suggestions: {
+      tarde: 'Sorvete Cubano (tradicional)',
+      noite: 'Restaurante Paraíso Tropical (vista pro mar)',
+    },
+  },
+  {
+    id: 'barra-3h-fotos',
+    region: 'Farol da Barra',
+    duration: '3h',
+    vibe: 'Fotos / Instagram',
+    steps: [
+      {
+        name: 'Farol da Barra',
+        time: '40 min',
+        description: 'Cartão-postal de Salvador com vista espetacular',
+        maps: 'https://maps.app.goo.gl/farol-barra',
+      },
+      {
+        name: 'Forte de Santo Antônio',
+        time: '30 min',
+        description: 'Museu náutico e mirante para o pôr do sol',
+        maps: 'https://maps.app.goo.gl/forte-santo-antonio',
+      },
+      {
+        name: 'Porto da Barra',
+        time: '40 min',
+        description: 'Praia urbana perfeita para banho e fotos',
+        maps: 'https://maps.app.goo.gl/porto-barra',
+      },
+      {
+        name: 'Morro do Cristo',
+        time: '30 min',
+        description: 'Vista panorâmica de 360° da cidade',
+        maps: 'https://maps.app.goo.gl/morro-cristo',
+      },
+    ],
+    food_suggestions: {
+      almoco: 'Caranguejo do Faustino (frente pro mar)',
+      tarde: 'Sorvete Cubano (tradicional)',
+      noite: 'Restaurante Paraíso Tropical (vista pro mar)',
+    },
+  },
+  {
+    id: 'cidade-baixa-3h-cultural',
+    region: 'Cidade Baixa',
+    duration: '3h',
+    vibe: 'Cultural',
+    steps: [
+      {
+        name: 'Mercado Modelo',
+        time: '45 min',
+        description: 'Artesanato e souvenirs baianos',
+        maps: 'https://maps.app.goo.gl/mercado-modelo',
+      },
+      {
+        name: 'Igreja de Nossa Senhora da Conceição da Praia',
+        time: '25 min',
+        description: 'Bela igreja colonial portuguesa',
+        maps: 'https://maps.app.goo.gl/conceicao-praia',
+      },
+      {
+        name: 'Elevador Lacerda',
+        time: '15 min',
+        description: 'Vista panorâmica e acesso à Cidade Alta',
+        maps: 'https://maps.app.goo.gl/elevador-lacerda',
+      },
+      {
+        name: 'Forte São Marcelo (vista externa)',
+        time: '20 min',
+        description: 'Forte circular no meio da Baía de Todos os Santos',
+        maps: 'https://maps.app.goo.gl/forte-sao-marcelo',
+      },
+    ],
+    food_suggestions: {
+      almoco: 'Restaurante Maria de São Pedro (baiano)',
+      tarde: 'Casa da Tereza (tapiocas e café)',
+    },
+  },
+  {
+    id: 'carmo-2h-caminhada',
+    region: 'Carmo',
+    duration: '2h',
+    vibe: 'Caminhada leve',
+    steps: [
+      {
+        name: 'Igreja e Convento do Carmo',
+        time: '30 min',
+        description: 'Uma das igrejas mais bonitas de Salvador',
+        maps: 'https://maps.app.goo.gl/carmo',
+      },
+      {
+        name: 'Largo do Carmo',
+        time: '20 min',
+        description: 'Praça charmosa com casarões históricos',
+        maps: 'https://maps.app.goo.gl/largo-carmo',
+      },
+      {
+        name: 'Rua do Passo e arredores',
+        time: '40 min',
+        description: 'Caminhada tranquila pelo bairro histórico',
+        maps: 'https://maps.app.goo.gl/rua-passo',
+      },
+    ],
+    food_suggestions: {
+      almoco: 'Restaurante do Carmo (tradicional)',
+      tarde: 'Café Alquimia (café especial)',
+      noite: 'Bar do Carmo (vista + calma)',
+    },
+  },
+  {
+    id: 'pelourinho-dia-inteiro-cultural',
+    region: 'Pelourinho',
+    duration: 'Dia inteiro',
+    vibe: 'Cultural',
+    steps: [
+      {
+        name: 'Largo do Pelourinho',
+        time: '30 min',
+        description: 'Centro histórico e fotos dos casarões coloridos',
+        maps: 'https://maps.app.goo.gl/pelourinho',
+      },
+      {
+        name: 'Fundação Jorge Amado',
+        time: '45 min',
+        description: 'Museu dedicado ao escritor baiano',
+        maps: 'https://maps.app.goo.gl/fundacao-jorge-amado',
+      },
+      {
+        name: 'Igreja do Rosário dos Pretos',
+        time: '30 min',
+        description: 'História afro-brasileira e tradição espiritual',
+        maps: 'https://maps.app.goo.gl/rosario-pretos',
+      },
+      {
+        name: 'Museu Afro-Brasileiro',
+        time: '1h',
+        description: 'Arte e cultura africana no Brasil',
+        maps: 'https://maps.app.goo.gl/museu-afro',
+      },
+      {
+        name: 'Catedral Basílica',
+        time: '30 min',
+        description: 'Imponente catedral jesuíta',
+        maps: 'https://maps.app.goo.gl/catedral',
+      },
+      {
+        name: 'Igreja de São Francisco',
+        time: '45 min',
+        description: 'Interior barroco coberto de ouro',
+        maps: 'https://maps.app.goo.gl/sao-francisco',
+      },
+      {
+        name: 'Elevador Lacerda',
+        time: '30 min',
+        description: 'Vista panorâmica e acesso à Cidade Baixa',
+        maps: 'https://maps.app.goo.gl/elevador-lacerda',
+      },
+      {
+        name: 'Mercado Modelo',
+        time: '45 min',
+        description: 'Artesanato e souvenirs baianos',
+        maps: 'https://maps.app.goo.gl/mercado-modelo',
+      },
+    ],
+    food_suggestions: {
+      manha: 'Cafelia (café da manhã)',
+      almoco: 'Restaurante do SENAC (comida baiana tradicional)',
+      tarde: 'Sorveteria da Ribeira',
+      noite: 'Bar do Carmo (vista + calma)',
+    },
+  },
+  {
+    id: 'rio-vermelho-dia-inteiro-gastro',
+    region: 'Rio Vermelho',
+    duration: 'Dia inteiro',
+    vibe: 'Gastronomia',
+    steps: [
+      {
+        name: 'Casa de Yemanjá',
+        time: '30 min',
+        description: 'Santuário à beira-mar dedicado à rainha do mar',
+        maps: 'https://maps.app.goo.gl/casa-yemanja',
+      },
+      {
+        name: 'Mercado do Peixe',
+        time: '1h 30min',
+        description: 'Frutos do mar fresquíssimos preparados na hora',
+        maps: 'https://maps.app.goo.gl/mercado-peixe',
+      },
+      {
+        name: 'Acarajé da Dinha',
+        time: '45 min',
+        description: 'O acarajé mais famoso de Salvador',
+        maps: 'https://maps.app.goo.gl/acaraje-dinha',
+      },
+      {
+        name: 'Sorbeteria da Ribeira',
+        time: '30 min',
+        description: 'Sorvetes artesanais com sabores regionais',
+        maps: 'https://maps.app.goo.gl/sorbeteria',
+      },
+      {
+        name: 'Largo de Santana',
+        time: '1h',
+        description: 'Boemia, bares e música ao vivo',
+        maps: 'https://maps.app.goo.gl/largo-santana',
+      },
+      {
+        name: 'Jantar no Boteco do França',
+        time: '1h 30min',
+        description: 'Petiscos e cerveja gelada em ambiente descontraído',
+        maps: 'https://maps.app.goo.gl/boteco-franca',
+      },
+    ],
+    food_suggestions: {
+      manha: 'Café da manhã no hotel',
+      almoco: 'Mercado do Peixe (frutos do mar)',
+      tarde: 'Acarajé da Dinha + Sorbeteria',
+      noite: 'Boteco do França (petiscos e cerveja)',
+    },
+  },
+];
