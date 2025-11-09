@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import {
+  Hourglass, Sparkles, Calendar, MapPin, Palette, Clock, BarChart,
+  ChevronDown, ChevronRight, Sunrise, Sun, Moon,
+  Timer, DollarSign, Utensils, Car, UtensilsCrossed, Wine,
+  Ticket, Banknote, Lightbulb, Droplet, Smartphone, ShieldAlert,
+  RefreshCw, Map as MapIcon
+} from 'lucide-react';
 import Navigation from '../components/shared/Navigation';
 import type { MultiDayTrip, RegionHours, TravelStyle, TravelPace } from '../types/multiday';
 import { generateItinerary } from '../utils/itineraryGenerator';
@@ -43,9 +50,9 @@ export default function MultiDayItinerary() {
   };
 
   const getPeriodIcon = (period: 'morning' | 'afternoon' | 'evening') => {
-    if (period === 'morning') return '🌅';
-    if (period === 'afternoon') return '☀️';
-    return '🌙';
+    if (period === 'morning') return <Sunrise size={20} />;
+    if (period === 'afternoon') return <Sun size={20} />;
+    return <Moon size={20} />;
   };
 
   const getPeriodLabel = (period: 'morning' | 'afternoon' | 'evening') => {
@@ -59,7 +66,7 @@ export default function MultiDayItinerary() {
       <div className="itinerary-page theme-light">
         <Navigation />
         <div className="loading-container">
-          <div className="loading-spinner">⏳</div>
+          <div className="loading-spinner"><Hourglass size={48} /></div>
           <p>Gerando seu roteiro personalizado...</p>
         </div>
       </div>
@@ -71,19 +78,33 @@ export default function MultiDayItinerary() {
       <Navigation />
 
       <div className="itinerary-header">
-        <h1 className="itinerary-title">🎉 Seu Roteiro Personalizado</h1>
+        <h1 className="itinerary-title">
+          <Sparkles size={32} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+          Seu Roteiro Personalizado
+        </h1>
         <div className="itinerary-meta">
-          <span className="meta-item">📅 {trip.totalDays} dias em Salvador</span>
-          <span className="meta-item">📍 {trip.regions.join(' • ')}</span>
-          <span className="meta-item">🎭 {trip.style}</span>
-          <span className="meta-item">⏱️ Ritmo {trip.pace}</span>
+          <span className="meta-item">
+            <Calendar size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> {trip.totalDays} dias em Salvador
+          </span>
+          <span className="meta-item">
+            <MapPin size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> {trip.regions.join(' • ')}
+          </span>
+          <span className="meta-item">
+            <Palette size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> {trip.style}
+          </span>
+          <span className="meta-item">
+            <Clock size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Ritmo {trip.pace}
+          </span>
         </div>
       </div>
 
       <div className="itinerary-container">
         {/* Visão geral */}
         <section className="overview-section">
-          <h2 className="section-heading">📊 Visão Geral</h2>
+          <h2 className="section-heading">
+            <BarChart size={24} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+            Visão Geral
+          </h2>
           <div className="overview-days">
             {trip.dailyItinerary.map((day) => (
               <div key={day.dayNumber} className="overview-day">
@@ -109,7 +130,7 @@ export default function MultiDayItinerary() {
                   <h3 className="day-title">{day.mainRegion}</h3>
                 </div>
                 <button className="expand-btn" aria-label="Expandir dia">
-                  {isExpanded ? '▼' : '▶'}
+                  {isExpanded ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                 </button>
               </div>
 
@@ -126,16 +147,20 @@ export default function MultiDayItinerary() {
                         {day.morning.activities.map((activity) => (
                           <div key={activity.id} className="activity-card">
                             <div className="activity-time">
-                              ⏰ {activity.startTime} - {activity.endTime}
+                              <Clock size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.startTime} - {activity.endTime}
                             </div>
                             <div className="activity-content">
-                              <h5 className="activity-name">📍 {activity.name}</h5>
+                              <h5 className="activity-name">
+                                <MapPin size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.name}
+                              </h5>
                               <p className="activity-description">{activity.description}</p>
                               <div className="activity-footer">
-                                <span className="activity-duration">⏱️ {activity.duration}</span>
+                                <span className="activity-duration">
+                                  <Timer size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.duration}
+                                </span>
                                 {activity.entryFee && activity.entryFee > 0 && (
                                   <span className="activity-fee">
-                                    💰 {formatCurrency(activity.entryFee)}
+                                    <DollarSign size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {formatCurrency(activity.entryFee)}
                                   </span>
                                 )}
                                 <a
@@ -144,7 +169,7 @@ export default function MultiDayItinerary() {
                                   rel="noopener noreferrer"
                                   className="activity-maps"
                                 >
-                                  📍 Ver no Maps
+                                  <MapIcon size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> Ver no Maps
                                 </a>
                               </div>
                             </div>
@@ -154,7 +179,9 @@ export default function MultiDayItinerary() {
 
                       {day.morning.foodSuggestion && (
                         <div className="food-card">
-                          <h5 className="food-title">🍴 Café da Manhã / Brunch</h5>
+                          <h5 className="food-title">
+                            <Utensils size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Café da Manhã / Brunch
+                          </h5>
                           <p className="food-place">{day.morning.foodSuggestion.placeName}</p>
                           <p className="food-description">{day.morning.foodSuggestion.description}</p>
                           <div className="food-details">
@@ -176,7 +203,7 @@ export default function MultiDayItinerary() {
 
                       {day.afternoon.travelTimeFromPrevious && (
                         <div className="travel-notice">
-                          🚕 Deslocamento: {day.afternoon.travelTimeFromPrevious}
+                          <Car size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> Deslocamento: {day.afternoon.travelTimeFromPrevious}
                         </div>
                       )}
 
@@ -184,16 +211,20 @@ export default function MultiDayItinerary() {
                         {day.afternoon.activities.map((activity) => (
                           <div key={activity.id} className="activity-card">
                             <div className="activity-time">
-                              ⏰ {activity.startTime} - {activity.endTime}
+                              <Clock size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.startTime} - {activity.endTime}
                             </div>
                             <div className="activity-content">
-                              <h5 className="activity-name">📍 {activity.name}</h5>
+                              <h5 className="activity-name">
+                                <MapPin size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.name}
+                              </h5>
                               <p className="activity-description">{activity.description}</p>
                               <div className="activity-footer">
-                                <span className="activity-duration">⏱️ {activity.duration}</span>
+                                <span className="activity-duration">
+                                  <Timer size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.duration}
+                                </span>
                                 {activity.entryFee && activity.entryFee > 0 && (
                                   <span className="activity-fee">
-                                    💰 {formatCurrency(activity.entryFee)}
+                                    <DollarSign size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {formatCurrency(activity.entryFee)}
                                   </span>
                                 )}
                                 <a
@@ -202,7 +233,7 @@ export default function MultiDayItinerary() {
                                   rel="noopener noreferrer"
                                   className="activity-maps"
                                 >
-                                  📍 Ver no Maps
+                                  <MapIcon size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> Ver no Maps
                                 </a>
                               </div>
                             </div>
@@ -212,7 +243,9 @@ export default function MultiDayItinerary() {
 
                       {day.afternoon.foodSuggestion && (
                         <div className="food-card">
-                          <h5 className="food-title">🍽️ Almoço</h5>
+                          <h5 className="food-title">
+                            <UtensilsCrossed size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Almoço
+                          </h5>
                           <p className="food-place">{day.afternoon.foodSuggestion.placeName}</p>
                           <p className="food-description">{day.afternoon.foodSuggestion.description}</p>
                           <div className="food-details">
@@ -224,7 +257,9 @@ export default function MultiDayItinerary() {
                       )}
 
                       {day.afternoon.weatherTip && (
-                        <div className="weather-tip">☀️ {day.afternoon.weatherTip}</div>
+                        <div className="weather-tip">
+                          <Sun size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {day.afternoon.weatherTip}
+                        </div>
                       )}
                     </div>
                   )}
@@ -238,7 +273,7 @@ export default function MultiDayItinerary() {
 
                       {day.evening.travelTimeFromPrevious && (
                         <div className="travel-notice">
-                          🚕 Deslocamento: {day.evening.travelTimeFromPrevious}
+                          <Car size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> Deslocamento: {day.evening.travelTimeFromPrevious}
                         </div>
                       )}
 
@@ -246,20 +281,24 @@ export default function MultiDayItinerary() {
                         {day.evening.activities.map((activity) => (
                           <div key={activity.id} className="activity-card">
                             <div className="activity-time">
-                              ⏰ {activity.startTime} - {activity.endTime}
+                              <Clock size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.startTime} - {activity.endTime}
                             </div>
                             <div className="activity-content">
-                              <h5 className="activity-name">📍 {activity.name}</h5>
+                              <h5 className="activity-name">
+                                <MapPin size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.name}
+                              </h5>
                               <p className="activity-description">{activity.description}</p>
                               <div className="activity-footer">
-                                <span className="activity-duration">⏱️ {activity.duration}</span>
+                                <span className="activity-duration">
+                                  <Timer size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> {activity.duration}
+                                </span>
                                 <a
                                   href={activity.mapsLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="activity-maps"
                                 >
-                                  📍 Ver no Maps
+                                  <MapIcon size={16} style={{ display: 'inline', verticalAlign: 'middle' }} /> Ver no Maps
                                 </a>
                               </div>
                             </div>
@@ -269,7 +308,9 @@ export default function MultiDayItinerary() {
 
                       {day.evening.foodSuggestion && (
                         <div className="food-card">
-                          <h5 className="food-title">🍷 Jantar</h5>
+                          <h5 className="food-title">
+                            <Wine size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Jantar
+                          </h5>
                           <p className="food-place">{day.evening.foodSuggestion.placeName}</p>
                           <p className="food-description">{day.evening.foodSuggestion.description}</p>
                           <div className="food-details">
@@ -289,26 +330,39 @@ export default function MultiDayItinerary() {
 
         {/* Resumo de custos */}
         <section className="cost-section">
-          <h2 className="section-heading">💰 Estimativa de Custos</h2>
+          <h2 className="section-heading">
+            <DollarSign size={24} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+            Estimativa de Custos
+          </h2>
           <div className="cost-grid">
             <div className="cost-item">
-              <span className="cost-label">🍴 Alimentação</span>
+              <span className="cost-label">
+                <Utensils size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Alimentação
+              </span>
               <span className="cost-value">{formatCurrency(trip.estimatedCost.food)}</span>
             </div>
             <div className="cost-item">
-              <span className="cost-label">🚕 Transporte</span>
+              <span className="cost-label">
+                <Car size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Transporte
+              </span>
               <span className="cost-value">{formatCurrency(trip.estimatedCost.transport)}</span>
             </div>
             <div className="cost-item">
-              <span className="cost-label">🎫 Entradas</span>
+              <span className="cost-label">
+                <Ticket size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Entradas
+              </span>
               <span className="cost-value">{formatCurrency(trip.estimatedCost.entries)}</span>
             </div>
             <div className="cost-item total">
-              <span className="cost-label">💵 Total</span>
+              <span className="cost-label">
+                <Banknote size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Total
+              </span>
               <span className="cost-value">{formatCurrency(trip.estimatedCost.total)}</span>
             </div>
             <div className="cost-item per-day">
-              <span className="cost-label">📊 Por dia</span>
+              <span className="cost-label">
+                <BarChart size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Por dia
+              </span>
               <span className="cost-value">{formatCurrency(trip.estimatedCost.perDay)}</span>
             </div>
           </div>
@@ -316,14 +370,29 @@ export default function MultiDayItinerary() {
 
         {/* Dicas gerais */}
         <section className="tips-section">
-          <h2 className="section-heading">💡 Dicas Gerais</h2>
+          <h2 className="section-heading">
+            <Lightbulb size={24} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+            Dicas Gerais
+          </h2>
           <ul className="tips-list">
-            <li>🌞 Use protetor solar! O sol de Salvador é forte o ano todo</li>
-            <li>💧 Mantenha-se sempre hidratado, especialmente no verão</li>
-            <li>💵 Tenha dinheiro em espécie - nem todos os lugares aceitam cartão</li>
-            <li>📱 Salve este roteiro ou tire prints para acessar offline</li>
-            <li>👮 Evite exibir objetos de valor em locais muito movimentados</li>
-            <li>🕐 Salvador tem horário de Brasília (GMT-3)</li>
+            <li>
+              <Sun size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Use protetor solar! O sol de Salvador é forte o ano todo
+            </li>
+            <li>
+              <Droplet size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Mantenha-se sempre hidratado, especialmente no verão
+            </li>
+            <li>
+              <Banknote size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Tenha dinheiro em espécie - nem todos os lugares aceitam cartão
+            </li>
+            <li>
+              <Smartphone size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Salve este roteiro ou tire prints para acessar offline
+            </li>
+            <li>
+              <ShieldAlert size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Evite exibir objetos de valor em locais muito movimentados
+            </li>
+            <li>
+              <Clock size={18} style={{ display: 'inline', verticalAlign: 'middle' }} /> Salvador tem horário de Brasília (GMT-3)
+            </li>
           </ul>
         </section>
 
@@ -333,7 +402,8 @@ export default function MultiDayItinerary() {
             onClick={() => navigate('/planejar-viagem')}
             className="btn-bahia-secondary"
           >
-            🔄 Criar Novo Roteiro
+            <RefreshCw size={20} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+            Criar Novo Roteiro
           </button>
         </div>
       </div>

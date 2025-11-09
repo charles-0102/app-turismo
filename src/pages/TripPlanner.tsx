@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Plane, Calendar, Map, Palette, Landmark, UtensilsCrossed, Camera, Footprints, Star, Clock, Snail, PersonStanding, Zap as Lightning, Target, AlertTriangle } from 'lucide-react';
 import Navigation from '../components/shared/Navigation';
 import type { TravelStyle, TravelPace, RegionHours } from '../types/multiday';
 import './TripPlanner.css';
@@ -66,7 +67,10 @@ export default function TripPlanner() {
       <Navigation />
 
       <div className="planner-hero">
-        <h1 className="planner-title">✈️ Planeje sua Viagem Completa</h1>
+        <h1 className="planner-title">
+          <Plane size={40} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+          Planeje sua Viagem Completa
+        </h1>
         <p className="planner-subtitle">
           Crie um roteiro personalizado de 2 a 4 dias explorando o melhor de Salvador
         </p>
@@ -76,7 +80,10 @@ export default function TripPlanner() {
         <form onSubmit={handleSubmit} className="planner-form">
           {/* PASSO 1: Duração */}
           <section className="form-section">
-            <h2 className="section-title">📅 Passo 1: Duração da Viagem</h2>
+            <h2 className="section-title">
+              <Calendar size={24} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+              Passo 1: Duração da Viagem
+            </h2>
             <div className="days-selector">
               {[2, 3, 4].map((days) => (
                 <button
@@ -94,7 +101,10 @@ export default function TripPlanner() {
 
           {/* PASSO 2: Regiões */}
           <section className="form-section">
-            <h2 className="section-title">🗺️ Passo 2: Regiões de Interesse</h2>
+            <h2 className="section-title">
+              <Map size={24} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+              Passo 2: Regiões de Interesse
+            </h2>
             <p className="section-hint">Selecione pelo menos 2 regiões</p>
 
             <div className="regions-grid">
@@ -150,7 +160,10 @@ export default function TripPlanner() {
 
           {/* PASSO 3: Estilo */}
           <section className="form-section">
-            <h2 className="section-title">🎭 Passo 3: Estilo da Viagem</h2>
+            <h2 className="section-title">
+              <Palette size={24} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+              Passo 3: Estilo da Viagem
+            </h2>
             <div className="style-grid">
               {(['Cultural', 'Gastronomia', 'Fotos / Instagram', 'Caminhada leve', 'Misto'] as TravelStyle[]).map(
                 (style) => (
@@ -161,11 +174,11 @@ export default function TripPlanner() {
                     onClick={() => setTravelStyle(style)}
                   >
                     <span className="style-icon">
-                      {style === 'Cultural' && '🏛️'}
-                      {style === 'Gastronomia' && '🍽️'}
-                      {style === 'Fotos / Instagram' && '📸'}
-                      {style === 'Caminhada leve' && '🚶'}
-                      {style === 'Misto' && '🌟'}
+                      {style === 'Cultural' && <Landmark size={28} />}
+                      {style === 'Gastronomia' && <UtensilsCrossed size={28} />}
+                      {style === 'Fotos / Instagram' && <Camera size={28} />}
+                      {style === 'Caminhada leve' && <Footprints size={28} />}
+                      {style === 'Misto' && <Star size={28} />}
                     </span>
                     <span className="style-name">{style}</span>
                   </button>
@@ -176,7 +189,10 @@ export default function TripPlanner() {
 
           {/* PASSO 4: Ritmo */}
           <section className="form-section">
-            <h2 className="section-title">⏱️ Passo 4: Ritmo da Viagem</h2>
+            <h2 className="section-title">
+              <Clock size={24} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+              Passo 4: Ritmo da Viagem
+            </h2>
             <div className="pace-options">
               {(['Relaxado', 'Moderado', 'Intenso'] as TravelPace[]).map((pace) => (
                 <label key={pace} className={`pace-option ${travelPace === pace ? 'selected' : ''}`}>
@@ -189,9 +205,9 @@ export default function TripPlanner() {
                   />
                   <div className="pace-content">
                     <span className="pace-icon">
-                      {pace === 'Relaxado' && '🐢'}
-                      {pace === 'Moderado' && '🚶'}
-                      {pace === 'Intenso' && '🏃'}
+                      {pace === 'Relaxado' && <Snail size={28} />}
+                      {pace === 'Moderado' && <PersonStanding size={28} />}
+                      {pace === 'Intenso' && <Lightning size={28} />}
                     </span>
                     <span className="pace-name">{pace}</span>
                     <span className="pace-description">
@@ -211,11 +227,15 @@ export default function TripPlanner() {
             className="btn-bahia-primary submit-btn"
             disabled={!isFormValid}
           >
-            🎯 Gerar Meu Roteiro Personalizado
+            <Target size={20} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+            Gerar Meu Roteiro Personalizado
           </button>
 
           {!isFormValid && (
-            <p className="form-error">⚠️ Selecione pelo menos 2 regiões para continuar</p>
+            <p className="form-error">
+              <AlertTriangle size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.3rem' }} />
+              Selecione pelo menos 2 regiões para continuar
+            </p>
           )}
         </form>
       </div>

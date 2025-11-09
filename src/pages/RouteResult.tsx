@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Clock, MapPin, UtensilsCrossed, Map, ArrowLeft } from 'lucide-react';
+import Navigation from '../components/shared/Navigation';
 import { routes } from '../data/routes';
 import type { Route } from '../types';
 import './RouteResult.css';
@@ -44,9 +46,10 @@ export default function RouteResult() {
 
   if (!selectedRoute) {
     return (
-      <div className="route-result">
+      <div className="route-result theme-light">
+        <Navigation />
         <div className="route-content">
-          <p>Carregando roteiro...</p>
+          <p className="loading-text">Carregando roteiro...</p>
         </div>
       </div>
     );
@@ -77,24 +80,28 @@ export default function RouteResult() {
   };
 
   return (
-    <div className="route-result">
-      <div className="route-content">
-        <button className="back-btn" onClick={() => navigate('/questionario')}>
-          ← Voltar e escolher outro roteiro
-        </button>
+    <div className="route-result theme-light">
+      <Navigation />
 
-        <div className="route-header">
-          <h1 className="route-title">
-            Roteiro: {selectedRoute.region} - {selectedRoute.vibe}
-          </h1>
-          <div className="route-meta">
-            <span className="route-duration">⏱️ {selectedRoute.duration}</span>
-            <span className="route-region">📍 {selectedRoute.region}</span>
-          </div>
+      <div className="route-result-header">
+        <h1 className="route-result-title">
+          Roteiro: {selectedRoute.region} - {selectedRoute.vibe}
+        </h1>
+        <div className="route-meta">
+          <span className="meta-badge">
+            <Clock size={18} />
+            {selectedRoute.duration}
+          </span>
+          <span className="meta-badge">
+            <MapPin size={18} />
+            {selectedRoute.region}
+          </span>
         </div>
+      </div>
 
+      <div className="route-container">
         <div className="route-steps">
-          <h2 className="section-title">Passos do Roteiro</h2>
+          <h2 className="section-title-route">Passos do Roteiro</h2>
           {selectedRoute.steps.map((step, index) => (
             <div key={index} className="step-card">
               <div className="step-number">{index + 1}</div>
@@ -102,14 +109,18 @@ export default function RouteResult() {
                 <h3 className="step-name">{step.name}</h3>
                 <p className="step-description">{step.description}</p>
                 <div className="step-footer">
-                  <span className="step-time">⏱️ {step.time}</span>
+                  <span className="step-time">
+                    <Clock size={16} />
+                    {step.time}
+                  </span>
                   <a
                     href={step.maps}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="step-maps-link"
                   >
-                    📍 Abrir no Google Maps
+                    <MapPin size={16} />
+                    Abrir no Google Maps
                   </a>
                 </div>
               </div>
@@ -118,7 +129,10 @@ export default function RouteResult() {
         </div>
 
         <div className="map-section">
-          <h2 className="section-title">Mapa da Região</h2>
+          <h2 className="section-title-route">
+            <Map size={24} />
+            Mapa da Região
+          </h2>
           <div className="map-container">
             <iframe
               title="Mapa da região"
@@ -131,7 +145,10 @@ export default function RouteResult() {
         </div>
 
         <div className="food-section">
-          <h2 className="section-title">Sugestão de onde comer</h2>
+          <h2 className="section-title-route">
+            <UtensilsCrossed size={24} />
+            Sugestão de onde comer
+          </h2>
           <div className="food-card">
             <div className="food-time">{getTimeLabel()}</div>
             <div className="food-suggestion">{getFoodSuggestion()}</div>
@@ -139,9 +156,10 @@ export default function RouteResult() {
         </div>
 
         <button
-          className="btn btn-primary back-btn-bottom"
+          className="btn-bahia-secondary back-btn-bottom"
           onClick={() => navigate('/questionario')}
         >
+          <ArrowLeft size={20} />
           Voltar e escolher outro roteiro
         </button>
       </div>

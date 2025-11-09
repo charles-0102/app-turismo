@@ -1,44 +1,36 @@
 .questionnaire {
   min-height: 100vh;
-  padding: 2rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.questionnaire-header {
+  background: linear-gradient(135deg, var(--bahia-blue) 0%, var(--bahia-green) 100%);
   color: white;
-}
-
-.questionnaire-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.back-btn {
-  background: transparent;
-  border: none;
-  color: #f2b705;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-bottom: 2rem;
-  padding: 0.5rem 0;
-  transition: opacity 0.3s ease;
-}
-
-.back-btn:hover {
-  opacity: 0.8;
+  padding: 3rem 2rem;
+  text-align: center;
 }
 
 .questionnaire-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #f2b705;
 }
 
 .questionnaire-subtitle {
   font-size: 1.1rem;
-  margin-bottom: 2.5rem;
-  color: #c0c0c0;
+  opacity: 0.95;
+}
+
+.questionnaire-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
 }
 
 .questionnaire-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--bahia-card-shadow);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -47,39 +39,56 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
-.form-group label {
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.1rem;
-  font-weight: 500;
-  color: #e0e0e0;
+  font-weight: 600;
+  color: var(--bahia-text-dark);
+}
+
+.form-label svg {
+  color: var(--bahia-blue);
 }
 
 .form-select {
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   font-size: 1rem;
-  border: 2px solid #444;
+  border: 2px solid var(--bahia-bg-light);
   border-radius: 8px;
-  background-color: #2d2d2d;
-  color: white;
+  background-color: white;
+  color: var(--bahia-text-dark);
   cursor: pointer;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-select:hover {
+  border-color: var(--bahia-blue);
 }
 
 .form-select:focus {
   outline: none;
-  border-color: #f2b705;
+  border-color: var(--bahia-blue);
+  box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
 }
 
 .form-select option {
-  background-color: #2d2d2d;
-  color: white;
+  background-color: white;
+  color: var(--bahia-text-dark);
 }
 
-.questionnaire-form .btn-primary {
+.submit-btn {
   margin-top: 1rem;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 @media (max-width: 768px) {

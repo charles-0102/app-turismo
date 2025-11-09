@@ -1,46 +1,60 @@
 .route-result {
   min-height: 100vh;
-  padding: 2rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.loading-text {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+  color: var(--bahia-text-dark);
+}
+
+.route-result-header {
+  background: linear-gradient(135deg, var(--bahia-blue) 0%, var(--bahia-green) 100%);
   color: white;
+  padding: 3rem 2rem;
+  text-align: center;
 }
 
-.route-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.route-header {
-  margin-bottom: 3rem;
-}
-
-.route-title {
+.route-result-title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  color: #f2b705;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .route-meta {
   display: flex;
-  gap: 2rem;
-  font-size: 1.1rem;
-  color: #e0e0e0;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.route-duration,
-.route-region {
+.meta-badge {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.section-title {
+.route-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.section-title-route {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: #f2b705;
+  color: var(--bahia-text-dark);
 }
 
 .route-steps {
@@ -50,8 +64,8 @@
 .step-card {
   display: flex;
   gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(242, 183, 5, 0.2);
+  background: white;
+  border: 2px solid var(--bahia-bg-light);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1rem;
@@ -59,8 +73,8 @@
 }
 
 .step-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(242, 183, 5, 0.4);
+  border-color: var(--bahia-blue);
+  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.15);
   transform: translateX(5px);
 }
 
@@ -68,8 +82,8 @@
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background: #f2b705;
-  color: #1a1a1a;
+  background: var(--bahia-blue);
+  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -86,12 +100,12 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: white;
+  color: var(--bahia-text-dark);
 }
 
 .step-description {
   font-size: 1rem;
-  color: #c0c0c0;
+  color: var(--bahia-text-medium);
   margin-bottom: 1rem;
   line-height: 1.5;
 }
@@ -105,19 +119,26 @@
 }
 
 .step-time {
-  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--bahia-text-medium);
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .step-maps-link {
-  color: #f2b705;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--bahia-blue);
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.3s ease;
 }
 
 .step-maps-link:hover {
-  opacity: 0.8;
+  opacity: 0.7;
   text-decoration: underline;
 }
 
@@ -128,7 +149,8 @@
 .map-container {
   border-radius: 12px;
   overflow: hidden;
-  border: 2px solid rgba(242, 183, 5, 0.3);
+  border: 2px solid var(--bahia-bg-light);
+  box-shadow: 0 4px 12px var(--bahia-card-shadow);
 }
 
 .map-iframe {
@@ -142,8 +164,8 @@
 }
 
 .food-card {
-  background: rgba(242, 183, 5, 0.1);
-  border: 2px solid rgba(242, 183, 5, 0.3);
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+  border: 2px solid var(--bahia-yellow);
   border-radius: 12px;
   padding: 2rem;
 }
@@ -151,7 +173,7 @@
 .food-time {
   font-size: 1rem;
   font-weight: 600;
-  color: #f2b705;
+  color: var(--bahia-orange);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -159,17 +181,22 @@
 
 .food-suggestion {
   font-size: 1.2rem;
-  color: white;
+  color: var(--bahia-text-dark);
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .back-btn-bottom {
   width: 100%;
   margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 @media (max-width: 768px) {
-  .route-title {
+  .route-result-title {
     font-size: 1.8rem;
   }
 
@@ -178,7 +205,7 @@
     gap: 0.5rem;
   }
 
-  .section-title {
+  .section-title-route {
     font-size: 1.5rem;
   }
 
@@ -192,5 +219,10 @@
 
   .map-iframe {
     height: 300px;
+  }
+
+  .step-footer {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

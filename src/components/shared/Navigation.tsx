@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Home, Calendar, Zap, Ship, Menu, X, Palmtree } from 'lucide-react';
 import './Navigation.css';
 
 export default function Navigation() {
@@ -8,10 +9,10 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { path: '/', label: 'Início', icon: '🏠' },
-    { path: '/planejar-viagem', label: 'Planejar Viagem', icon: '🗓️' },
-    { path: '/questionario', label: 'Roteiro Rápido', icon: '⚡' },
-    { path: '/bate-e-volta', label: 'Bate e Volta', icon: '🚢' },
+    { path: '/', label: 'Início', Icon: Home },
+    { path: '/planejar-viagem', label: 'Planejar Viagem', Icon: Calendar },
+    { path: '/questionario', label: 'Roteiro Rápido', Icon: Zap },
+    { path: '/bate-e-volta', label: 'Bate e Volta', Icon: Ship },
   ];
 
   const handleNavigate = (path: string) => {
@@ -23,7 +24,8 @@ export default function Navigation() {
     <nav className="navigation">
       <div className="nav-container">
         <div className="nav-logo" onClick={() => navigate('/')}>
-          🏝️ Salvador Explorer
+          <Palmtree size={24} />
+          Salvador Explorer
         </div>
 
         <button
@@ -31,21 +33,24 @@ export default function Navigation() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? '✕' : '☰'}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          {menuItems.map((item) => (
-            <li key={item.path}>
-              <button
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                onClick={() => handleNavigate(item.path)}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                <span className="nav-label">{item.label}</span>
-              </button>
-            </li>
-          ))}
+          {menuItems.map((item) => {
+            const Icon = item.Icon;
+            return (
+              <li key={item.path}>
+                <button
+                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                  onClick={() => handleNavigate(item.path)}
+                >
+                  <Icon size={20} className="nav-icon" />
+                  <span className="nav-label">{item.label}</span>
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

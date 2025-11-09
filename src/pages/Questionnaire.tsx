@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Clock, MapPin, Sparkles, ArrowRight } from 'lucide-react';
+import Navigation from '../components/shared/Navigation';
 import type { Duration, Region, Vibe } from '../types';
 import './Questionnaire.css';
 
@@ -15,20 +17,23 @@ export default function Questionnaire() {
   };
 
   return (
-    <div className="questionnaire">
-      <div className="questionnaire-content">
-        <button className="back-btn" onClick={() => navigate('/')}>
-          ← Voltar
-        </button>
+    <div className="questionnaire theme-light">
+      <Navigation />
 
-        <h1 className="questionnaire-title">Monte seu roteiro</h1>
+      <div className="questionnaire-header">
+        <h1 className="questionnaire-title">Monte seu roteiro rápido</h1>
         <p className="questionnaire-subtitle">
           Responda algumas perguntas para receber o roteiro perfeito
         </p>
+      </div>
 
+      <div className="questionnaire-container">
         <form onSubmit={handleSubmit} className="questionnaire-form">
           <div className="form-group">
-            <label htmlFor="duration">Quantas horas você tem?</label>
+            <label htmlFor="duration" className="form-label">
+              <Clock size={20} />
+              Quantas horas você tem?
+            </label>
             <select
               id="duration"
               value={duration}
@@ -44,7 +49,10 @@ export default function Questionnaire() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="region">Qual região vai visitar?</label>
+            <label htmlFor="region" className="form-label">
+              <MapPin size={20} />
+              Qual região vai visitar?
+            </label>
             <select
               id="region"
               value={region}
@@ -60,7 +68,10 @@ export default function Questionnaire() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="vibe">Qual vibe da viagem?</label>
+            <label htmlFor="vibe" className="form-label">
+              <Sparkles size={20} />
+              Qual vibe da viagem?
+            </label>
             <select
               id="vibe"
               value={vibe}
@@ -74,8 +85,9 @@ export default function Questionnaire() {
             </select>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn-bahia-primary submit-btn">
             Ver Roteiro
+            <ArrowRight size={20} />
           </button>
         </form>
       </div>
